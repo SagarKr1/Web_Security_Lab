@@ -15,17 +15,37 @@ import {
     CssBaseline,
     useTheme,
     useMediaQuery,
+    Divider,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
 const drawerWidth = 240;
 
-const navItems = [
-    {label:'Home',path:'/dashboard/home'},
-    { label: 'XSS', path: '/dashboard/xss' },
-    { label: 'CSRF', path: '/dashboard/csrf' },
-    { label: 'SQL Injection', path: '/dashboard/sql' },
-    { label: 'Broken Auth', path: '/dashboard/auth' },
+const navSections = [
+    {
+        items: [
+            { label: 'Home', path: '/dashboard/home' },
+            { label: 'Instructions', path: '/dashboard/instructions' },
+        ],
+    },
+    {
+        items: [
+            { label: 'Brute Force', path: '/dashboard/brute-force' },
+            { label: 'Command Injection', path: '/dashboard/command-injection' },
+            { label: 'File Upload', path: '/dashboard/file-upload' },
+            { label: 'SQL Injection', path: '/dashboard/sql' },
+            { label: 'XSS (DOM)', path: '/dashboard/xss-dom' },
+            { label: 'XSS (Reflected)', path: '/dashboard/xss-reflected' },
+            { label: 'XSS (Stored)', path: '/dashboard/xss-stored' },
+            { label: 'CSP Bypass', path: '/dashboard/csp-bypass' },
+        ],
+    },
+    {
+        items: [
+            { label: 'BEE Security', path: '/dashboard/bee-security' },
+            { label: 'About', path: '/dashboard/about' },
+        ],
+    },
 ];
 
 export default function DashboardLayout() {
@@ -45,28 +65,33 @@ export default function DashboardLayout() {
 
     const drawer = (
         <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%',paddingTop:10 }}>
-            <Box sx={{ flexGrow: 1 }}>
-                <List>
-                    {navItems.map((item) => (
-                        <ListItem key={item.label} disablePadding>
-                            <ListItemButton
-                                component={NavLink}
-                                to={item.path}
-                                end
-                                sx={{
-                                    '&.active': {
-                                        backgroundColor: '#e0e0e0',
-                                        borderLeft: '4px solid #1976d2',
-                                    },
-                                    paddingY: '10px',
-                                    paddingLeft: '20px',
-                                }}
-                            >
-                                <ListItemText primary={item.label} />
-                            </ListItemButton>
-                        </ListItem>
-                    ))}
-                </List>
+            <Box sx={{ flexGrow: 1, overflowY: 'auto' }}>
+                {navSections.map((section, index) => (
+                    <Box key={index}>
+                        <List>
+                            {section.items.map((item) => (
+                                <ListItem key={item.label} disablePadding>
+                                    <ListItemButton
+                                        component={NavLink}
+                                        to={item.path}
+                                        end
+                                        sx={{
+                                            '&.active': {
+                                                backgroundColor: '#e0e0e0',
+                                                borderLeft: '4px solid #1976d2',
+                                            },
+                                            paddingY: '10px',
+                                            paddingLeft: '20px',
+                                        }}
+                                    >
+                                        <ListItemText primary={item.label} />
+                                    </ListItemButton>
+                                </ListItem>
+                            ))}
+                        </List>
+                        <Divider sx={{ mx: 2 }} />
+                    </Box>
+                ))}
             </Box>
             <Box p={2}>
                 <Button
