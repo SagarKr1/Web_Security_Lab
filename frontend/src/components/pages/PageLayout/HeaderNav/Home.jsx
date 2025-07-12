@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, Paper, List, ListItem, ListItemText } from '@mui/material';
-import bee1 from '../../../assets/bee1.png'; // adjust path as per your project
+import bee1 from '../../../../assets/bee1.png'; // adjust path as per your project
 
 const HomePage = () => {
     return (

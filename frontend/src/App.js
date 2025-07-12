@@ -5,8 +5,8 @@ import PrivateRoute from "./components/auth/PrivateRoute";
 import DashboardLayout from "./components/pages/dashboard/DashboardLayout";
 
 // Optional dummy components for testing
-import Home from "./components/pages/PageLayout/Home";
-import Instructions from "./components/pages/PageLayout/Instructions";
+import Home from "./components/pages/PageLayout/HeaderNav/Home";
+import Instructions from "./components/pages/PageLayout/HeaderNav/Instructions";
 
 import BruteForcePage from "./components/pages/PageLayout/BruteForce";
 import CommandInjectionPage from "./components/pages/PageLayout/commandInjection";
@@ -17,8 +17,8 @@ import XssReflectedPage from "./components/pages/PageLayout/xss_Reflected";
 import XssStoredPage from "./components/pages/PageLayout/xss_store";
 import CspBypassPage from "./components/pages/PageLayout/csp_bypass";
 
-import AboutPage from "./components/pages/PageLayout/About";
-import BeeSecurity from './components/pages/PageLayout/Bee_Security';
+import AboutPage from "./components/pages/PageLayout/FooterNav/About";
+import BeeSecurity from './components/pages/PageLayout/FooterNav/Bee_Security';
 
 function App() {
   return (
